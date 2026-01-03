@@ -1,6 +1,5 @@
 # Ignore backend/server packages
 packages/server
-packages/core
 
 # Ignore docs and configs
 *.md
@@ -11,6 +10,8 @@ packages/core
 .railway-clear-cache
 .rebuild-trigger
 
-# Keep only frontend
+# Keep core and frontend - both needed for frontend build
+!packages/core
+!packages/core/**
 !packages/frontend
 !packages/frontend/**
