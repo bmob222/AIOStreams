@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm run build",
+  "buildCommand": "corepack enable && npm config set registry https://registry.npmjs.org/ --global && pnpm run build",
   "outputDirectory": "packages/frontend/out",
   "installCommand": "corepack enable && pnpm install --frozen-lockfile",
   "env": {
