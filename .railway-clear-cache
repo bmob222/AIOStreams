@@ -1,2 +1,0 @@
-# This file forces Railway to clear the Docker build cache
-# Delete this file after deployment succeeds to allow caching again
