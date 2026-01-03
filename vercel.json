@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm install && pnpm -F @aiostreams/frontend run build",
+  "buildCommand": "bash vercel-build.sh",
   "outputDirectory": "packages/frontend/out",
   "installCommand": "corepack enable && pnpm install --frozen-lockfile",
   "env": {
