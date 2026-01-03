@@ -41,9 +41,8 @@ COPY resources ./resources
 RUN pnpm -F core run build && pnpm -F server run build
 
 # Build frontend directly to avoid npm workspace issues
-WORKDIR /build/packages/frontend
-RUN next build
-WORKDIR /build
+# Use pnpm exec to properly resolve the next binary from node_modules/.bin
+RUN cd /build/packages/frontend && pnpm exec next build
 
 # Remove development dependencies.
 RUN rm -rf node_modules
