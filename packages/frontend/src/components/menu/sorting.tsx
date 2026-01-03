@@ -7,11 +7,9 @@ import { Select } from '../ui/select';
 import { useUserData } from '@/context/userData';
 import { IconButton } from '../ui/button';
 import { Combobox } from '../ui/combobox';
-import {
-  SORT_CRITERIA,
-  SORT_CRITERIA_DETAILS,
-  SORT_DIRECTIONS,
-} from '../../../../core/src/utils/constants';
+import { constants } from '@aiostreams/core';
+
+const { SORT_CRITERIA, SORT_CRITERIA_DETAILS, SORT_DIRECTIONS } = constants;
 import {
   DndContext,
   useSensors,

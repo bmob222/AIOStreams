@@ -26,7 +26,7 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import { PlusIcon, SearchIcon, FilterIcon } from 'lucide-react';
 import TemplateOption from '../shared/template-option';
-import * as constants from '../../../../core/src/utils/constants';
+import { constants } from '@aiostreams/core';
 import { TextInput } from '../ui/text-input';
 import { MdSubtitles, MdOutlineDataset, MdSavedSearch } from 'react-icons/md';
 import { RiFolderDownloadFill } from 'react-icons/ri';

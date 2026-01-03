@@ -1,10 +1,9 @@
 'use client';
 import { useStatus } from '@/context/status';
 import { PageWrapper } from '../shared/page-wrapper';
-import {
-  // SERVICE_DETAILS,
-  ServiceId,
-} from '../../../../core/src/utils/constants';
+import { constants } from '@aiostreams/core';
+
+type ServiceId = keyof typeof constants.SERVICE_DETAILS;
 import { useUserData } from '@/context/userData';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import {

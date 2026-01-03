@@ -6,13 +6,18 @@ import { useUserData } from '@/context/userData';
 import { SettingsCard } from '../shared/settings-card';
 import { Combobox } from '../ui/combobox';
 import {
+  constants,
+} from '@aiostreams/core';
+
+const {
   RESOURCES,
   AUTO_PLAY_ATTRIBUTES,
   DEFAULT_AUTO_PLAY_ATTRIBUTES,
-  AutoPlayMethod,
   AUTO_PLAY_METHODS,
   AUTO_PLAY_METHOD_DETAILS,
-} from '../../../../core/src/utils/constants';
+} = constants;
+
+type AutoPlayMethod = typeof constants.AUTO_PLAY_METHODS[number];
 import { Select } from '../ui/select';
 import { Alert } from '../ui/alert';
 import { useMode } from '@/context/mode';

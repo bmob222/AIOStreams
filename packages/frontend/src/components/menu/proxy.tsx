@@ -2,7 +2,7 @@
 import { useStatus } from '@/context/status';
 import { PageWrapper } from '../shared/page-wrapper';
 import { useState, useEffect } from 'react';
-import * as constants from '../../../../core/src/utils/constants';
+import { constants } from '@aiostreams/core';
 import { useUserData } from '@/context/userData';
 import { Switch } from '../ui/switch';
 import { Select } from '../ui/select';

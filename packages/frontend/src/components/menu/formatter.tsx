@@ -1,8 +1,7 @@
 'use client';
 import { PageWrapper } from '../shared/page-wrapper';
 
-import * as constants from '../../../../core/src/utils/constants';
-import { ParsedStream } from '../../../../core/src/db/schemas';
+import { constants, ParsedStream, FileParser } from '@aiostreams/core';
 import React, { useState, useEffect, useCallback } from 'react';
 import { useUserData } from '@/context/userData';
 import { SettingsCard } from '../shared/settings-card';
@@ -10,9 +9,9 @@ import { Textarea } from '../ui/textarea';
 import { Select } from '../ui/select';
 import { Switch } from '../ui/switch';
 import { TextInput } from '../ui/text-input';
-import FileParser from '../../../../core/src/parser/file';
 import { UserConfigAPI } from '@/services/api';
-import { SNIPPETS } from '../../../../core/src/utils/constants';
+
+const { SNIPPETS } = constants;
 import { Modal } from '@/components/ui/modal';
 import { useDisclosure } from '@/hooks/disclosure';
 import { Button } from '../ui/button';

@@ -53,7 +53,9 @@ import { CSS } from '@dnd-kit/utilities';
 import { Select } from '../ui/select';
 import { Combobox } from '../ui/combobox';
 import { SettingsCard } from '../shared/settings-card';
-import {
+import { constants } from '@aiostreams/core';
+
+const {
   RESOLUTIONS,
   QUALITIES,
   ENCODES,
@@ -70,7 +72,7 @@ import {
   MAX_SEEDERS,
   MIN_AGE_HOURS,
   MAX_AGE_HOURS,
-} from '../../../../core/src/utils/constants';
+} = constants;
 import { PageControls } from '../shared/page-controls';
 import { Switch } from '../ui/switch';
 import { useStatus } from '@/context/status';
