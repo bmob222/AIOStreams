@@ -31,7 +31,7 @@ import {
   ConfirmationDialog,
   useConfirmationDialog,
 } from '../shared/confirmation-dialog';
-import { UserData } from '@aiostreams/core';
+import type { UserData } from '@aiostreams/core';
 
 // Reusable modal option button component
 interface ModalOptionButtonProps {

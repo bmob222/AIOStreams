@@ -1,8 +1,9 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "packages/frontend/out",
   "installCommand": "npm install --legacy-peer-deps",
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "BASE_URL": "https://aiostreams.vercel.app",
+    "SECRET_KEY": "50c563b98b96fdafd7859c31b6d2bae25a198975af21c22329b3dd86f61b9490"
   }
 }

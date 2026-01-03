@@ -14,8 +14,8 @@ import {
 } from 'lucide-react';
 import { TextInput } from '../ui/text-input';
 import { Textarea } from '../ui/textarea';
-import { constants } from '@aiostreams/core';
-import { StatusResponse, Template } from '@aiostreams/core';
+import { constants } from '@/utils/constants';
+import type { StatusResponse, Template } from '@aiostreams/core';
 import MarkdownLite from './markdown-lite';
 import { BiImport } from 'react-icons/bi';
 import {

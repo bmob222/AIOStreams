@@ -53,7 +53,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { Select } from '../ui/select';
 import { Combobox } from '../ui/combobox';
 import { SettingsCard } from '../shared/settings-card';
-import { constants } from '@aiostreams/core';
+import { constants } from '@/utils/constants';
 
 const {
   RESOLUTIONS,

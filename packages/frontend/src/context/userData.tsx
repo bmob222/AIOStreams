@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserData } from '@aiostreams/core';
+import type { UserData } from '@aiostreams/core';
 import {
   QUALITIES,
   RESOLUTIONS,

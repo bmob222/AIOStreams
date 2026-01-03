@@ -7,7 +7,7 @@ import { SettingsCard } from '../shared/settings-card';
 import { Combobox } from '../ui/combobox';
 import {
   constants,
-} from '@aiostreams/core';
+} from '@/utils/constants';
 
 const {
   RESOURCES,

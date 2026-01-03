@@ -4,7 +4,7 @@ import { Modal } from '../ui/modal';
 import { Button } from '../ui/button';
 import { Alert } from '../ui/alert';
 import { toast } from 'sonner';
-import { Template, UserData } from '@aiostreams/core';
+import type { Template, UserData } from '@aiostreams/core';
 import { useStatus } from '@/context/status';
 import { TextInput } from '../ui/text-input';
 import { Textarea } from '../ui/textarea';

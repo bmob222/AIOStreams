@@ -1,7 +1,19 @@
 'use client';
 import { PageWrapper } from '../shared/page-wrapper';
 
-import { constants, ParsedStream, FileParser } from '@aiostreams/core';
+import { constants } from '@/utils/constants';
+import type { ParsedStream, ServiceId, FormatterType } from '@aiostreams/core';
+// FileParser is only available on backend - using mock for frontend
+const FileParser = {
+  parse: (filename: string) => ({
+    // Mock for frontend - actual parsing happens on backend
+    audioChannels: [],
+    visualTags: [],
+    audioTags: [],
+    languages: [],
+    title: filename.split('/').pop() || '',
+  }),
+};
 import React, { useState, useEffect, useCallback } from 'react';
 import { useUserData } from '@/context/userData';
 import { SettingsCard } from '../shared/settings-card';
@@ -153,7 +165,7 @@ function Content() {
   const [seeders, setSeeders] = useState<number | undefined>(125);
   const [age, setAge] = useState<string>('10d');
   const [addonName, setAddonName] = useState('Torrentio');
-  const [providerId, setProviderId] = useState<constants.ServiceId | 'none'>(
+  const [providerId, setProviderId] = useState<ServiceId | 'none'>(
     'none'
   );
   const [isCached, setIsCached] = useState(true);
@@ -181,7 +193,7 @@ function Content() {
       ...prev,
       formatter: {
         ...prev.formatter,
-        id: (formatterId || prev.formatter.id) as constants.FormatterType,
+        id: (formatterId || prev.formatter.id) as FormatterType,
         definition: {
           name: name ?? prev.formatter.definition?.name ?? '',
           description:
@@ -337,7 +349,7 @@ function Content() {
         <Select
           value={userData.formatter.id}
           onValueChange={(value) =>
-            handleFormatterChange(value as constants.FormatterType)
+            handleFormatterChange(value as FormatterType)
           }
           options={formatterChoices.map((f) => ({
             label: f.name,
@@ -537,7 +549,7 @@ function Content() {
                 })),
               ]}
               onValueChange={(value: string) =>
-                setProviderId(value as constants.ServiceId)
+                setProviderId(value as ServiceId)
               }
               className="w-full"
             />

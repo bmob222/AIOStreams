@@ -1,7 +1,7 @@
 'use client';
 import { useStatus } from '@/context/status';
 import { PageWrapper } from '../shared/page-wrapper';
-import { constants } from '@aiostreams/core';
+import { constants } from '@/utils/constants';
 
 type ServiceId = keyof typeof constants.SERVICE_DETAILS;
 import { useUserData } from '@/context/userData';
@@ -34,7 +34,7 @@ import { PageControls } from '../shared/page-controls';
 import { SettingsCard } from '../shared/settings-card';
 import { TextInput } from '../ui/text-input';
 import { PasswordInput } from '../ui/password-input';
-import { StatusResponse, UserData } from '@aiostreams/core';
+import type { StatusResponse, UserData } from '@aiostreams/core';
 export function ServicesMenu() {
   return (
     <>

@@ -6,7 +6,7 @@ import React, {
   useEffect,
   ReactNode,
 } from 'react';
-import { StatusResponse } from '@aiostreams/core';
+import type { StatusResponse } from '@aiostreams/core';
 
 type StatusContextType = {
   status: StatusResponse | null;

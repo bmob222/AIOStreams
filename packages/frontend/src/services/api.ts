@@ -1,4 +1,4 @@
-import { ParsedStream, UserData } from '@aiostreams/core';
+import type { ParsedStream, UserData } from '@aiostreams/core';
 
 interface ApiResponse<T> {
   success: boolean;

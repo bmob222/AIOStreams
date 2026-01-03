@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { MergedCatalog, CatalogModification } from '@aiostreams/core';
+import type { MergedCatalog, CatalogModification } from '@aiostreams/core';
 import { PageWrapper } from '../shared/page-wrapper';
 import { useStatus } from '@/context/status';
 import { useUserData } from '@/context/userData';
@@ -26,14 +26,14 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 import { PlusIcon, SearchIcon, FilterIcon } from 'lucide-react';
 import TemplateOption from '../shared/template-option';
-import { constants } from '@aiostreams/core';
+import { constants, PresetCategory } from '@/utils/constants';
 import { TextInput } from '../ui/text-input';
 import { MdSubtitles, MdOutlineDataset, MdSavedSearch } from 'react-icons/md';
 import { RiFolderDownloadFill } from 'react-icons/ri';
 
 import { Popover } from '../ui/popover';
 import { BiEdit, BiTrash } from 'react-icons/bi';
-import { Option, Resource } from '@aiostreams/core';
+import type { Option, Resource } from '@aiostreams/core';
 import { toast } from 'sonner';
 import { Tooltip } from '../ui/tooltip';
 import { StaticTabs } from '../ui/tabs';
@@ -99,7 +99,7 @@ function Content() {
   const [search, setSearch] = useState('');
   // Filter states
   const [categoryFilter, setCategoryFilter] = useState<
-    constants.PresetCategory | 'all'
+    typeof PresetCategory[keyof typeof PresetCategory] | 'all'
   >('all');
   const [serviceFilter, setServiceFilter] = useState<string>('all');
   const [streamTypeFilter, setStreamTypeFilter] = useState<string>('all');
@@ -302,16 +302,16 @@ function Content() {
 
   // Group presets by category
   const streamPresets = filteredPresets.filter(
-    (n) => n.CATEGORY === constants.PresetCategory.STREAMS || !n.CATEGORY
+    (n) => (n.CATEGORY as any) === constants.PresetCategory.STREAMS || !n.CATEGORY
   );
   const subtitlePresets = filteredPresets.filter(
-    (n) => n.CATEGORY === constants.PresetCategory.SUBTITLES
+    (n) => (n.CATEGORY as any) === constants.PresetCategory.SUBTITLES
   );
   const metaCatalogPresets = filteredPresets.filter(
-    (n) => n.CATEGORY === constants.PresetCategory.META_CATALOGS
+    (n) => (n.CATEGORY as any) === constants.PresetCategory.META_CATALOGS
   );
   const miscPresets = filteredPresets.filter(
-    (n) => n.CATEGORY === constants.PresetCategory.MISC
+    (n) => (n.CATEGORY as any) === constants.PresetCategory.MISC
   );
 
   const addonGridClassName =

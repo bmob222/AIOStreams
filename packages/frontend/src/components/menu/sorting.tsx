@@ -7,7 +7,7 @@ import { Select } from '../ui/select';
 import { useUserData } from '@/context/userData';
 import { IconButton } from '../ui/button';
 import { Combobox } from '../ui/combobox';
-import { constants } from '@aiostreams/core';
+import { constants } from '@/utils/constants';
 
 const { SORT_CRITERIA, SORT_CRITERIA_DETAILS, SORT_DIRECTIONS } = constants;
 import {
