@@ -9,7 +9,7 @@ FROM base AS builder
 WORKDIR /build
 
 # Force cache invalidation with build timestamp (prevents stale cached layers)
-ARG BUILD_TIMESTAMP="2026-01-03T05:39:00"
+ARG BUILD_TIMESTAMP="2026-01-03T06:15:00"
 RUN echo "Build timestamp: ${BUILD_TIMESTAMP}"
 
 # Clear npm cache and configure registry to prevent workspace detection issues
@@ -48,13 +48,10 @@ COPY resources ./resources
 # Build the project - build core and server via pnpm
 RUN pnpm -F core run build && pnpm -F server run build
 
-# Build frontend: avoid npm workspace detection by building outside workspace context
-# Move frontend to temp dir without workspace files, build, then move back
-RUN mkdir -p /tmp/frontend-build && \
-    cp -r /build/packages/frontend/* /tmp/frontend-build/ && \
-    cd /tmp/frontend-build && \
-    NODE_PATH=/build/node_modules:/build/packages/frontend/node_modules next build && \
-    cp -r .next /build/packages/frontend/.next
+# Build frontend: run next directly through node to bypass pnpm/npm workspace detection
+# The ENOWORKSPACES error occurs because Next.js calls "pnpm config get registry" which fails in workspace context
+RUN cd /build/packages/frontend && \
+    node /build/node_modules/next/dist/bin/next build
 
 # Remove development dependencies.
 RUN rm -rf node_modules
