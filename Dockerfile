@@ -1,4 +1,4 @@
-# Force complete rebuild - timestamp 2026-01-03T06:03:15Z
+# Force complete rebuild - timestamp 2026-01-03T06:05:30Z
 FROM node:24-alpine AS base
 
 ENV PNPM_HOME="/pnpm"
@@ -49,11 +49,10 @@ COPY resources ./resources
 # Build the project - build core and server via pnpm
 RUN pnpm -F core run build && pnpm -F server run build
 
-# Build frontend: run next directly through node to bypass pnpm/npm workspace detection
-# The ENOWORKSPACES error occurs because Next.js calls "pnpm config get registry" which fails in workspace context
-# Next is installed in frontend's node_modules, not root
+# Build frontend: use next binary directly via .bin symlink
+# Avoids workspace detection by invoking next directly without pnpm's config lookup
 RUN cd /build/packages/frontend && \
-    node ./node_modules/next/dist/bin/next build
+    ./node_modules/.bin/next build
 
 # Remove development dependencies.
 RUN rm -rf node_modules
