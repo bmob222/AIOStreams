@@ -1,7 +1,7 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npm -w @aiostreams/frontend run build",
   "outputDirectory": "packages/frontend/out",
-  "installCommand": "npm install --legacy-peer-deps",
+  "installCommand": "npm install --legacy-peer-deps && npm -w @aiostreams/core run build",
   "env": {
     "NODE_ENV": "production"
   }
