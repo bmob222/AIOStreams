@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      next:
-        specifier: ^15.5.9
-        version: 15.5.9(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
     devDependencies:
       cross-env:
         specifier: ^7.0.3
