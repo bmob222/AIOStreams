@@ -37,8 +37,13 @@ COPY scripts ./scripts
 COPY resources ./resources
 
 
-# Build the project.
-RUN pnpm run build
+# Build the project - build core and server via pnpm, frontend directly
+RUN pnpm -F core run build && pnpm -F server run build
+
+# Build frontend directly to avoid npm workspace issues
+WORKDIR /build/packages/frontend
+RUN next build
+WORKDIR /build
 
 # Remove development dependencies.
 RUN rm -rf node_modules
