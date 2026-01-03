@@ -1,8 +1,15 @@
 {
-  "buildCommand": "cd packages/core && pnpm install --frozen-lockfile && pnpm run build && cd ../frontend && pnpm install --frozen-lockfile && pnpm run build",
+  "buildCommand": "pnpm run build",
   "outputDirectory": "packages/frontend/out",
   "installCommand": "corepack enable && pnpm install --frozen-lockfile",
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "npm_config_registry": "https://registry.npmjs.org/",
+    "npm_config_workspaces_ignore_scripts": "true",
+    "npm_config_legacy_peer_deps": "true",
+    "npm_config__jsr_registry": "https://npm.jsr.io",
+    "npm_config_update_notifier": "false",
+    "PNPM_HOME": "/pnpm",
+    "PATH": "/pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
   }
 }
