@@ -1,0 +1,16 @@
+# Ignore backend/server packages
+packages/server
+packages/core
+
+# Ignore docs and configs
+*.md
+.git
+.gitignore
+.github
+.env.*
+.railway-clear-cache
+.rebuild-trigger
+
+# Keep only frontend
+!packages/frontend
+!packages/frontend/**
