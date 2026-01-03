@@ -8,10 +8,8 @@ FROM base AS builder
 
 WORKDIR /build
 
-# Set npm config to not treat packages as workspaces during Next.js build
-ENV NPM_CONFIG_LEGACY_PEER_DEPS=true
-ENV NPM_CONFIG_WORKSPACES_IGNORE_SCRIPTS=true
-ENV NEXT_SKIP_REGISTRY_CHECK=true
+# Configure npm registry directly to prevent workspace detection issues
+RUN npm config set registry https://registry.npmjs.org/ --global
 
 # Copy LICENSE file.
 COPY LICENSE ./
