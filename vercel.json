@@ -1,7 +1,7 @@
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm install --legacy-peer-deps",
-  "outputDirectory": "packages/frontend/.next",
+  "root": "packages/frontend",
+  "buildCommand": "cd ../.. && npm run build",
+  "installCommand": "cd ../.. && npm install --legacy-peer-deps",
   "env": {
     "NODE_ENV": "production",
     "BASE_URL": "https://aiostreams.vercel.app",
