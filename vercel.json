@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm -C packages/core run build && pnpm -C packages/frontend run build",
+  "buildCommand": "cd packages/core && pnpm install --frozen-lockfile && pnpm run build && cd ../frontend && pnpm install --frozen-lockfile && pnpm run build",
   "outputDirectory": "packages/frontend/out",
   "installCommand": "corepack enable && pnpm install --frozen-lockfile",
   "env": {
