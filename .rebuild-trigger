@@ -1,0 +1,4 @@
+REBUILD_ID: 2026-01-03T06:08:00Z
+Purpose: Force Railway to fetch fresh snapshot and rebuild from scratch
+Issue: Docker layer caching was preventing Dockerfile updates from taking effect
+Solution: Delete old snapshots and force new build
