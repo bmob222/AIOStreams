@@ -1,5 +1,8 @@
 {
-  "installCommand": "npm install --legacy-peer-deps",
+  "framework": "nextjs",
+  "installCommand": "cd ../.. && npm install --legacy-peer-deps",
+  "buildCommand": "cd ../.. && npm run build",
+  "outputDirectory": ".next",
   "env": {
     "NODE_ENV": "production",
     "BASE_URL": "https://aiostreams.vercel.app",
