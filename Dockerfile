@@ -8,8 +8,14 @@ FROM base AS builder
 
 WORKDIR /build
 
-# Configure npm registry directly to prevent workspace detection issues
+# Clear npm cache and configure registry to prevent workspace detection issues
+RUN npm cache clean --force
 RUN npm config set registry https://registry.npmjs.org/ --global
+RUN npm config delete workspaces-ignore-scripts 2>/dev/null || true
+RUN npm config delete verify-deps-before-run 2>/dev/null || true
+
+# Pre-configure pnpm registry so Next.js doesn't need to query it
+RUN pnpm config set registry https://registry.npmjs.org/
 
 # Copy LICENSE file.
 COPY LICENSE ./
