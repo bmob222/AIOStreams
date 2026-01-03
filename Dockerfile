@@ -49,10 +49,9 @@ COPY resources ./resources
 # Build the project - build core and server via pnpm
 RUN pnpm -F core run build && pnpm -F server run build
 
-# Build frontend: use next binary directly via .bin symlink
-# Avoids workspace detection by invoking next directly without pnpm's config lookup
-RUN cd /build/packages/frontend && \
-    ./node_modules/.bin/next build
+# Build frontend: use pnpm workspace filter to build in workspace context
+# This keeps Next.js in the workspace, preventing the npm workspace detection error
+RUN pnpm --filter @aiostreams/frontend run build
 
 # Remove development dependencies.
 RUN rm -rf node_modules
