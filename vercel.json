@@ -9,7 +9,6 @@
     "npm_config_legacy_peer_deps": "true",
     "npm_config__jsr_registry": "https://npm.jsr.io",
     "npm_config_update_notifier": "false",
-    "PNPM_HOME": "/pnpm",
-    "PATH": "/pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+    "PNPM_HOME": "/pnpm"
   }
 }
