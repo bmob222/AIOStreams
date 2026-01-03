@@ -1,7 +1,7 @@
 {
-  "buildCommand": "pnpm run build",
+  "buildCommand": "npm --workspace=@aiostreams/frontend run build",
   "outputDirectory": "packages/frontend/out",
-  "installCommand": "corepack enable && pnpm install",
+  "installCommand": "npm install --legacy-peer-deps",
   "env": {
     "NODE_ENV": "production"
   }

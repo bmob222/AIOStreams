@@ -9,7 +9,7 @@
     "release": "commit-and-tag-version",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "metadata": "node scripts/generateMetadata.cjs",
-    "build": "pnpm -C packages/core run build && pnpm -C packages/frontend run build",
+    "build": "npm run build --workspace=@aiostreams/core && npm run build --workspace=@aiostreams/frontend",
     "build:watch": "tsc --build --watch",
     "start": "node packages/server/dist/server",
     "start:addon": "pnpm run start",
@@ -32,6 +32,5 @@
   },
   "engines": {
     "node": ">=24.0.0"
-  },
-  "packageManager": "pnpm@9.12.3"
+  }
 }
