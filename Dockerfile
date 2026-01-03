@@ -8,6 +8,10 @@ FROM base AS builder
 
 WORKDIR /build
 
+# Force cache invalidation with build timestamp (prevents stale cached layers)
+ARG BUILD_TIMESTAMP="2026-01-03T05:39:00"
+RUN echo "Build timestamp: ${BUILD_TIMESTAMP}"
+
 # Clear npm cache and configure registry to prevent workspace detection issues
 RUN npm cache clean --force
 RUN npm config set registry https://registry.npmjs.org/ --global
