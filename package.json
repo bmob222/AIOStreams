@@ -9,7 +9,7 @@
     "release": "commit-and-tag-version",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "metadata": "node scripts/generateMetadata.cjs",
-    "build": "npm run build -w @aiostreams/core && npm run build -w @aiostreams/frontend",
+    "build": "npm -w @aiostreams/core run build && npm -w @aiostreams/frontend run build",
     "build:watch": "tsc --build --watch",
     "start": "node packages/server/dist/server",
     "start:addon": "pnpm run start",
