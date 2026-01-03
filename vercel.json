@@ -1,8 +1,7 @@
 {
-  "buildCommand": "cd packages/frontend && npm install && npm run build",
+  "buildCommand": "pnpm install && pnpm -F @aiostreams/frontend run build",
   "outputDirectory": "packages/frontend/out",
-  "public": false,
-  "installCommand": "npm install -g pnpm && pnpm install",
+  "installCommand": "corepack enable && pnpm install --frozen-lockfile",
   "env": {
     "NODE_ENV": "production"
   }
