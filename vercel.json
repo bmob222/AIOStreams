@@ -1,12 +1,8 @@
 {
-  "buildCommand": "cd packages/frontend && node ../../node_modules/next/dist/bin/next.js build",
+  "buildCommand": "pnpm -F core run build && pnpm -F @aiostreams/frontend run build",
   "outputDirectory": "packages/frontend/out",
   "installCommand": "corepack enable && pnpm install --frozen-lockfile",
   "env": {
-    "NODE_ENV": "production",
-    "npm_config_workspaces_ignore_scripts": "true",
-    "npm_config_legacy_peer_deps": "true",
-    "PNPM_HOME": "/pnpm",
-    "PATH": "/pnpm:$PATH"
+    "NODE_ENV": "production"
   }
 }
