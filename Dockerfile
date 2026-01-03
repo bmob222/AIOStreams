@@ -41,12 +41,16 @@ COPY scripts ./scripts
 COPY resources ./resources
 
 
-# Build the project - build core and server via pnpm, frontend directly
+# Build the project - build core and server via pnpm
 RUN pnpm -F core run build && pnpm -F server run build
 
-# Build frontend directly to avoid npm workspace issues
-# Use pnpm exec to properly resolve the next binary from node_modules/.bin
-RUN cd /build/packages/frontend && pnpm exec next build
+# Build frontend: avoid npm workspace detection by building outside workspace context
+# Move frontend to temp dir without workspace files, build, then move back
+RUN mkdir -p /tmp/frontend-build && \
+    cp -r /build/packages/frontend/* /tmp/frontend-build/ && \
+    cd /tmp/frontend-build && \
+    NODE_PATH=/build/node_modules:/build/packages/frontend/node_modules next build && \
+    cp -r .next /build/packages/frontend/.next
 
 # Remove development dependencies.
 RUN rm -rf node_modules
