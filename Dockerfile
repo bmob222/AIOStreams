@@ -1,3 +1,4 @@
+# Force complete rebuild - timestamp 2026-01-03T06:03:15Z
 FROM node:24-alpine AS base
 
 ENV PNPM_HOME="/pnpm"
