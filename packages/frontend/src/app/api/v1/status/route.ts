@@ -27,8 +27,11 @@ const USENET_STREAM_TYPE = 'usenet';
 const HTTP_STREAM_TYPE = 'http';
 const LIVE_STREAM_TYPE = 'live';
 
-// Preset categories
-type PresetCategory = 'torrent-addon' | 'usenet-addon' | 'http-addon' | 'catalog-addon' | 'subtitle-addon' | 'other-addon' | 'torrent-indexer' | 'usenet-indexer';
+// Preset categories - must match frontend constants
+const CATEGORY_STREAMS = 'streams';
+const CATEGORY_SUBTITLES = 'subtitles';
+const CATEGORY_META_CATALOGS = 'metaCatalogs';
+const CATEGORY_MISC = 'misc';
 
 // Services data
 const services = {
@@ -248,7 +251,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [P2P_STREAM_TYPE, DEBRID_STREAM_TYPE],
     SUPPORTED_RESOURCES: [STREAM_RESOURCE, META_RESOURCE, CATALOG_RESOURCE],
     OPTIONS: baseOptions('Torrentio', [STREAM_RESOURCE, META_RESOURCE, CATALOG_RESOURCE]),
-    CATEGORY: 'torrent-addon' as PresetCategory,
+    CATEGORY: CATEGORY_STREAMS,
   },
   {
     ID: 'comet',
@@ -260,7 +263,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [DEBRID_STREAM_TYPE],
     SUPPORTED_RESOURCES: [STREAM_RESOURCE],
     OPTIONS: baseOptions('Comet', [STREAM_RESOURCE]),
-    CATEGORY: 'torrent-addon' as PresetCategory,
+    CATEGORY: CATEGORY_STREAMS,
   },
   {
     ID: 'mediafusion',
@@ -272,7 +275,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [P2P_STREAM_TYPE, DEBRID_STREAM_TYPE],
     SUPPORTED_RESOURCES: [STREAM_RESOURCE, CATALOG_RESOURCE],
     OPTIONS: baseOptions('MediaFusion', [STREAM_RESOURCE, CATALOG_RESOURCE]),
-    CATEGORY: 'torrent-addon' as PresetCategory,
+    CATEGORY: CATEGORY_STREAMS,
   },
   {
     ID: 'stremio-gdrive',
@@ -284,7 +287,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [HTTP_STREAM_TYPE],
     SUPPORTED_RESOURCES: [STREAM_RESOURCE, CATALOG_RESOURCE],
     OPTIONS: baseOptions('Google Drive', [STREAM_RESOURCE, CATALOG_RESOURCE]),
-    CATEGORY: 'http-addon' as PresetCategory,
+    CATEGORY: CATEGORY_STREAMS,
     BUILTIN: true,
   },
   {
@@ -297,7 +300,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [DEBRID_STREAM_TYPE],
     SUPPORTED_RESOURCES: [STREAM_RESOURCE],
     OPTIONS: baseOptions('TorBox', [STREAM_RESOURCE]),
-    CATEGORY: 'torrent-addon' as PresetCategory,
+    CATEGORY: CATEGORY_STREAMS,
   },
   {
     ID: 'easynews',
@@ -309,7 +312,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [USENET_STREAM_TYPE],
     SUPPORTED_RESOURCES: [STREAM_RESOURCE],
     OPTIONS: baseOptions('Easynews', [STREAM_RESOURCE]),
-    CATEGORY: 'usenet-addon' as PresetCategory,
+    CATEGORY: CATEGORY_STREAMS,
   },
   {
     ID: 'custom',
@@ -329,7 +332,7 @@ const presets = [
       },
       ...baseOptions('Custom Addon', [STREAM_RESOURCE]),
     ],
-    CATEGORY: 'other-addon' as PresetCategory,
+    CATEGORY: CATEGORY_MISC,
   },
   {
     ID: 'opensubtitles',
@@ -341,7 +344,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [],
     SUPPORTED_RESOURCES: [SUBTITLES_RESOURCE],
     OPTIONS: baseOptions('OpenSubtitles', [SUBTITLES_RESOURCE]),
-    CATEGORY: 'subtitle-addon' as PresetCategory,
+    CATEGORY: CATEGORY_SUBTITLES,
   },
   {
     ID: 'jackettio',
@@ -353,7 +356,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [P2P_STREAM_TYPE, DEBRID_STREAM_TYPE],
     SUPPORTED_RESOURCES: [STREAM_RESOURCE],
     OPTIONS: baseOptions('Jackettio', [STREAM_RESOURCE]),
-    CATEGORY: 'torrent-addon' as PresetCategory,
+    CATEGORY: CATEGORY_STREAMS,
   },
   {
     ID: 'orion',
@@ -365,7 +368,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [P2P_STREAM_TYPE, DEBRID_STREAM_TYPE, USENET_STREAM_TYPE],
     SUPPORTED_RESOURCES: [STREAM_RESOURCE],
     OPTIONS: baseOptions('Orion', [STREAM_RESOURCE]),
-    CATEGORY: 'torrent-addon' as PresetCategory,
+    CATEGORY: CATEGORY_STREAMS,
   },
   {
     ID: 'anime-kitsu',
@@ -376,7 +379,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [],
     SUPPORTED_RESOURCES: [CATALOG_RESOURCE, META_RESOURCE],
     OPTIONS: baseOptions('Anime Kitsu', [CATALOG_RESOURCE, META_RESOURCE]),
-    CATEGORY: 'catalog-addon' as PresetCategory,
+    CATEGORY: CATEGORY_META_CATALOGS,
   },
   {
     ID: 'tmdb-addon',
@@ -387,7 +390,7 @@ const presets = [
     SUPPORTED_STREAM_TYPES: [],
     SUPPORTED_RESOURCES: [CATALOG_RESOURCE, META_RESOURCE],
     OPTIONS: baseOptions('TMDB', [CATALOG_RESOURCE, META_RESOURCE]),
-    CATEGORY: 'catalog-addon' as PresetCategory,
+    CATEGORY: CATEGORY_META_CATALOGS,
   },
 ];
 
