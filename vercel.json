@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build --workspace=@aiostreams/core && npm run build --workspace=@aiostreams/frontend",
+  "buildCommand": "npm run build -w @aiostreams/core && npm run build -w @aiostreams/frontend",
   "outputDirectory": "packages/frontend/out",
   "installCommand": "npm install --legacy-peer-deps",
   "env": {
