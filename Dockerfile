@@ -9,7 +9,7 @@ FROM base AS builder
 WORKDIR /build
 
 # Force cache invalidation with build timestamp (prevents stale cached layers)
-ARG CACHE_BUST="v2-node-direct-build"
+ARG CACHE_BUST="rebuild-frontend-2026-01-03-06-01"
 RUN echo "Cache bust: ${CACHE_BUST} - $(date)"
 
 # Clear npm cache and configure registry to prevent workspace detection issues
