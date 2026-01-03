@@ -1,5 +1,5 @@
 {
-  "buildCommand": "bash vercel-build.sh",
+  "buildCommand": "cd packages/frontend && ../../node_modules/.bin/next build",
   "outputDirectory": "packages/frontend/out",
   "installCommand": "corepack enable && pnpm install --frozen-lockfile",
   "env": {
