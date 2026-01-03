@@ -50,8 +50,9 @@ RUN pnpm -F core run build && pnpm -F server run build
 
 # Build frontend: run next directly through node to bypass pnpm/npm workspace detection
 # The ENOWORKSPACES error occurs because Next.js calls "pnpm config get registry" which fails in workspace context
+# Next is installed in frontend's node_modules, not root
 RUN cd /build/packages/frontend && \
-    node /build/node_modules/next/dist/bin/next build
+    node ./node_modules/next/dist/bin/next build
 
 # Remove development dependencies.
 RUN rm -rf node_modules
