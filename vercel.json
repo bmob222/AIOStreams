@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm -F core run build && pnpm -F @aiostreams/frontend run build",
+  "buildCommand": "pnpm -C packages/core run build && pnpm -C packages/frontend run build",
   "outputDirectory": "packages/frontend/out",
   "installCommand": "corepack enable && pnpm install --frozen-lockfile",
   "env": {
